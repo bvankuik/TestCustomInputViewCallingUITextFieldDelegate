@@ -47,7 +47,9 @@ class VINumpadInputView: VIBaseInputView {
             newText = String(buttonText) + " " + text
         }
         
-        self.activeTextField?.text = newText
+        if self.shouldChange(text: newText) {
+            self.activeTextField?.text = newText
+        }
     }
     
     @objc func plusMinusButtonTapped(_ control: UIButton) {
@@ -55,18 +57,22 @@ class VINumpadInputView: VIBaseInputView {
             return
         }
         
+        let newText: String
         // Text contains minus, remove it and be done
         if text.contains("-") {
             let components = text.split(separator: "-", maxSplits: 1, omittingEmptySubsequences: false)
-            self.activeTextField?.text =  components.joined()
-            return
+            newText = components.joined()
+        } else {
+            // Text doesn't contain minus, insert at correct place
+            if let firstCharacter = text.first, firstCharacter == "<" || firstCharacter == ">" {
+                newText = String(firstCharacter) + " -" + text.dropFirst().trimmingCharacters(in: CharacterSet.whitespaces)
+            } else {
+                newText = "-" + text
+            }
         }
         
-        // Text doesn't contain minus, insert at correct place
-        if let firstCharacter = text.first, firstCharacter == "<" || firstCharacter == ">" {
-            self.activeTextField?.text = String(firstCharacter) + " -" + text.dropFirst().trimmingCharacters(in: CharacterSet.whitespaces)
-        } else {
-            self.activeTextField?.text = "-" + text
+        if self.shouldChange(text: newText) {
+            self.activeTextField?.text = newText
         }
     }
     
@@ -75,10 +81,15 @@ class VINumpadInputView: VIBaseInputView {
             return
         }
         
+        let newText: String
         if text.count == 0 {
-            textField.text = "0" + self.decimalSeparator
+            newText = "0" + self.decimalSeparator
         } else {
-            textField.text = text + self.decimalSeparator
+            newText = text + self.decimalSeparator
+        }
+        
+        if self.shouldChange(text: newText) {
+            textField.text = newText
         }
     }
 

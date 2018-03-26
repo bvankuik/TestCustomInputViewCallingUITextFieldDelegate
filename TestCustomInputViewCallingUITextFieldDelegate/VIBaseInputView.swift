@@ -50,14 +50,20 @@ open class VIBaseInputView: UIView {
         self.mainStackView.addArrangedSubview(stackView)
     }
     
-    // MARK: - Layout
-    
-    override open func updateConstraints() {
-        if !self.constraintsInstalled {
-            self.constraintsInstalled = true
-            self.setupConstraints()
+    // MARK: - Internal functions
+
+    internal func shouldChange(text: String) -> Bool {
+        guard let textField = self.activeTextField, let delegate = textField.delegate else {
+            return true
         }
-        super.updateConstraints()
+        
+        // We should not pass NSRange() but use selectedTextRange. In practice, that parameter isn't used in our
+        // validations at the moment.
+        if let permission = delegate.textField?(textField, shouldChangeCharactersIn: NSRange(), replacementString: text) {
+            return permission
+        } else {
+            return true
+        }
     }
     
     // MARK: - Private functions
@@ -141,7 +147,11 @@ open class VIBaseInputView: UIView {
             return
         }
         
-        textField.text = oldText + newText
+        self.updateConstraints()
+        
+        if self.shouldChange(text: newText) {
+            textField.text = oldText + newText
+        }
     }
     
     @objc func nextButtonTapped(_ control: UIButton) {
@@ -162,6 +172,16 @@ open class VIBaseInputView: UIView {
     @objc func deleteButtonTouchUpAction(_ control: UIButton) {
         dlog()
         self.deleteButtonRepeatTimer?.invalidate()
+    }
+    
+    // MARK: - Layout
+    
+    override open func updateConstraints() {
+        if !self.constraintsInstalled {
+            self.constraintsInstalled = true
+            self.setupConstraints()
+        }
+        super.updateConstraints()
     }
     
     // MARK: - Life cycle
