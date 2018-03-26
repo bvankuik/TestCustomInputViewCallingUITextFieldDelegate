@@ -12,6 +12,10 @@
 		89DE92172068EFEC0096BF4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89DE92152068EFEC0096BF4B /* Main.storyboard */; };
 		89DE92192068EFEC0096BF4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89DE92182068EFEC0096BF4B /* Assets.xcassets */; };
 		89DE921C2068EFEC0096BF4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89DE921A2068EFEC0096BF4B /* LaunchScreen.storyboard */; };
+		89DE92242068F0090096BF4B /* VIBaseInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE92232068F0090096BF4B /* VIBaseInputView.swift */; };
+		89DE92262068F02B0096BF4B /* VIBaseInputViewButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE92252068F02B0096BF4B /* VIBaseInputViewButton.swift */; };
+		89DE92282068F0790096BF4B /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE92272068F0790096BF4B /* Global.swift */; };
+		89DE922A2068F4230096BF4B /* VINumpadInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89DE92292068F4220096BF4B /* VINumpadInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		89DE92182068EFEC0096BF4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89DE921B2068EFEC0096BF4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89DE921D2068EFEC0096BF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89DE92232068F0090096BF4B /* VIBaseInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIBaseInputView.swift; sourceTree = "<group>"; };
+		89DE92252068F02B0096BF4B /* VIBaseInputViewButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIBaseInputViewButton.swift; sourceTree = "<group>"; };
+		89DE92272068F0790096BF4B /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		89DE92292068F4220096BF4B /* VINumpadInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VINumpadInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +63,11 @@
 			isa = PBXGroup;
 			children = (
 				89DE92112068EFEC0096BF4B /* AppDelegate.swift */,
+				89DE92272068F0790096BF4B /* Global.swift */,
 				89DE92132068EFEC0096BF4B /* ViewController.swift */,
+				89DE92292068F4220096BF4B /* VINumpadInputView.swift */,
+				89DE92232068F0090096BF4B /* VIBaseInputView.swift */,
+				89DE92252068F02B0096BF4B /* VIBaseInputViewButton.swift */,
 				89DE92152068EFEC0096BF4B /* Main.storyboard */,
 				89DE92182068EFEC0096BF4B /* Assets.xcassets */,
 				89DE921A2068EFEC0096BF4B /* LaunchScreen.storyboard */,
@@ -137,7 +149,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				89DE92142068EFEC0096BF4B /* ViewController.swift in Sources */,
+				89DE922A2068F4230096BF4B /* VINumpadInputView.swift in Sources */,
 				89DE92122068EFEC0096BF4B /* AppDelegate.swift in Sources */,
+				89DE92242068F0090096BF4B /* VIBaseInputView.swift in Sources */,
+				89DE92282068F0790096BF4B /* Global.swift in Sources */,
+				89DE92262068F02B0096BF4B /* VIBaseInputViewButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
