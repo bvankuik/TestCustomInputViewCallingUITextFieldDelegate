@@ -49,6 +49,7 @@ class VINumpadInputView: VIBaseInputView {
         
         if self.shouldChange(text: newText) {
             self.activeTextField?.text = newText
+            self.activeTextField?.sendActions(for: .editingChanged)
         }
     }
     
@@ -73,7 +74,8 @@ class VINumpadInputView: VIBaseInputView {
         
         if self.shouldChange(text: newText) {
             self.activeTextField?.text = newText
-        }
+            self.activeTextField?.sendActions(for: .editingChanged)
+}
     }
     
     @objc func separatorButtonTapped(_ control: UIButton) {
@@ -90,6 +92,7 @@ class VINumpadInputView: VIBaseInputView {
         
         if self.shouldChange(text: newText) {
             textField.text = newText
+            textField.sendActions(for: .editingChanged)
         }
     }
 

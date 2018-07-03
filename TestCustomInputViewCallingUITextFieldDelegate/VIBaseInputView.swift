@@ -151,6 +151,7 @@ open class VIBaseInputView: UIView {
         
         if self.shouldChange(text: newText) {
             textField.text = oldText + newText
+            textField.sendActions(for: .editingChanged)
         }
     }
     
